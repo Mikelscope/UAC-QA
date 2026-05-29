@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Auto Wrapping Analytics</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header>
+            <h1>GALA AUTO WRAPPING ANALYTICS</h1>
+            <p>Quality Assurance Monitoring System</p>
+        </header>
+
+        <!-- MAIN FORM -->
+        <form id="qaForm">
+
+            <!-- DATE -->
+            <!-- <div class="form-group">
+                <label for="sampleDate">Date</label>
+
+                <input 
+                    type="date" 
+                    id="sampleDate" 
+                    name="sampleDate"
+                    required
+                />
+            </div> -->
+
+            <!-- TIME BATCH -->
+            <!-- <div class="form-group">
+                <label for="batchTime">Batch Time</label>
+
+                <select id="batchTime" name="batchTime" required>
+                    <option value="">Select Batch</option>
+
+                    <option value="7-9">7AM - 9AM</option>
+                    <option value="10-12">10AM - 12PM</option>
+                    <option value="1-3">1PM - 3PM</option>
+                    <option value="3-5">3PM - 5PM</option>
+                    <option value="5-7">5PM - 7PM</option>
+                </select>
+            </div> -->
+
+            <!-- PRODUCT TYPE -->
+            <div class="form-group">
+                <label for="productType">Product Type</label>
+
+                <select id="productType" name="productType" required>
+
+                    <option value="">Select Product</option>
+
+                    <option value="odogwu">Odogwu</option>
+                    <option value="classic" selected>Classic</option>
+                    <option value="gsr">GSR</option>
+
+                </select>
+            </div>
+
+            <!-- LINE -->
+            <!-- <div class="form-group">
+                <label for="lineNumber">Autowrapping Line</label>
+
+                <select id="lineNumber" name="lineNumber" required>
+
+                    <option value="">Select Line</option>
+
+                    <option value="1">Line 1</option>
+                    <option value="2">Line 2</option>
+                    <option value="3">Line 3</option>
+                    <option value="4">Line 4</option>
+                    <option value="5">Line 5</option>
+                    <option value="6">Line 6</option>
+
+                </select>
+            </div> -->
+
+            <!-- WEIGHT INPUT SECTION -->
+            <section class="weights-section">
+
+                <h2>Enter Gala Weights</h2>
+
+                <div class="weights-grid">
+
+                    <input type="number" class="weight-input" name="weight1" placeholder="1" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight2" placeholder="2" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight3" placeholder="3" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight4" placeholder="4" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight5" placeholder="5" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight6" placeholder="6" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight7" placeholder="7" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight8" placeholder="8" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight9" placeholder="9" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight10" placeholder="10" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight11" placeholder="11" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight12" placeholder="12" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight13" placeholder="13" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight14" placeholder="14" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight15" placeholder="15" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight16" placeholder="16" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight17" placeholder="17" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight18" placeholder="18" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight19" placeholder="19" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight20" placeholder="20" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight21" placeholder="21" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight22" placeholder="22" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight23" placeholder="23" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight24" placeholder="24" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight25" placeholder="25" inputmode="numeric" pattern="[0-9]*" />
+                    <input type="number" class="weight-input" name="weight26" placeholder="26" inputmode="numeric" pattern="[0-9]*" />
+
+                </div>
+
+            </section>
+            <!-- BUTTONS -->
+            <div class="button-group">
+
+                <button type="submit">
+                    Calculate
+                </button>
+
+                <button type="reset">
+                    Clear
+                </button>
+
+            </div>
+
+        </form>
+
+        <!-- RESULTS SECTION -->
+        <section class="results-section">
+
+            <h2>Analysis Results</h2>
+
+            <div class="result-card">
+
+                <p>
+                    Standard:
+                    <span id="meetStandardCount">0</span>
+                </p>
+                <p>
+                    Underweight:
+                    <span id="underweightCount">0</span>
+                </p>
+
+                <p>
+                    Overweight:
+                    <span id="overweightCount">0</span>
+                </p>
+
+                <p>
+                    Total Defects:
+                    <span id="totalDefects">0</span>
+                </p>
+
+                <p>
+                    Defect Percentage:
+                    <span id="defectPercentage">0%</span>
+                </p>
+
+                <p>
+                    Status:
+                    <span id="status">Pending</span>
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
