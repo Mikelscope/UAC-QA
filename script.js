@@ -93,7 +93,7 @@ document.getElementById("qaForm").addEventListener("submit", function (e) {
         const value = parseFloat(input.value);
 
         // reset old colors
-        input.classList.remove("green", "red");
+        input.classList.remove("green", "red", "yellow");
 
         if (!isNaN(value)) {
 
@@ -104,7 +104,7 @@ document.getElementById("qaForm").addEventListener("submit", function (e) {
             // =============================
             if (value < spec.min) {
                 underStandard++;
-                input.classList.add("red");
+                input.classList.add("yellow");
             } 
             else if (value > spec.max) {
                 overStandard++;
@@ -129,7 +129,7 @@ document.getElementById("qaForm").addEventListener("submit", function (e) {
     // =============================
     const meetPercent = (meetStandard / total) * 100;
     const defectPercent = ((underStandard + overStandard) / total) * 100;
-
+    const onSpecPercent = 100 - defectPercent;
     // =============================
     // STATUS ENGINE
     // =============================
@@ -154,6 +154,12 @@ document.getElementById("qaForm").addEventListener("submit", function (e) {
 
     document.getElementById("defectPercentage").textContent =
         defectPercent.toFixed(2) + "%";
+
+        document.getElementById("onSpecPercentage").textContent =
+        onSpecPercent.toFixed(2) + "%";
+
+    document.getElementById("averageWeight").textContent =
+        (weights.reduce((a, b) => a + b, 0) / total).toFixed(2);
 
     document.getElementById("status").textContent = status;
 
