@@ -65,7 +65,7 @@ document.getElementById("qaForm").addEventListener("submit", function (e) {
                 return { min: 57, max: 63 };
 
             case "gsr":
-                return { min: 37, max: 43 };
+                return { min: 27, max: 33 };
 
             case "odogwu":
                 return { min: 117, max: 123 };
