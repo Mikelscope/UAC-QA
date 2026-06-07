@@ -125,12 +125,13 @@ input:focus {
 
 .weights-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 45% 45%;
     gap: 25px;
 }
 
 .weight-input {
     font-size: 1rem;
+    height: 100%;
 }
 
 /* ==========================
@@ -198,11 +199,11 @@ input:focus {
 }
 
 .result-card p {
-    background: #f8fafc;
     border: 1px solid #e5e7eb;
     border-radius: 16px;
     padding: 20px;
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 10px;
     font-weight: 500;
@@ -214,6 +215,28 @@ input:focus {
     color: #111827;
 }
 
+.avg-weight{
+    background: rgba(34, 197, 94, 0.2);
+
+}
+.on-spec {
+    background: rgba(34, 197, 94, 0.2);
+}
+.underweight {
+    background: rgba(251, 191, 36, 0.3);
+}
+.overweight {
+    background: rgba(248, 113, 113, 0.4);
+}
+.total-defects {
+    background: rgba(239, 68, 68, 0.2);
+}
+.defect-percentage {
+    background: rgba(244, 114, 182, 0.6);
+}
+.on-spec-percentage {
+    background: rgba(59, 130, 246, 0.6);
+}
 /* ==========================
    STATUS COLORS
 ========================== */
@@ -230,15 +253,9 @@ input:focus {
     color: #d97706 !important;
 }
 
-    .weight-input {
-        height: 100%;
-        padding:   inherit;
-        width: 100%;
-        /* background: #3476b8; */
-    }
-        .weight-input::placeholder {
-        padding: 8px 12px;
-    }
+
+
+
 
 
 
@@ -263,88 +280,44 @@ input:focus {
 
 
 }
-    .weight-input {
-        height: 100%;
-        padding:   inherit;
-        width: 100%;
-        /* background: #3476b8; */
-    }
+
+    /* ==========================
+   ICONS
+========================== */
+
+i, .icon {
+    font-size: 2rem;
+}
+
+    
 
 /* ==========================
    RESPONSIVE
 ========================== */
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
 
-    body {
-        padding: 12px;
-    }
+.input-container {
+    grid-template-columns: 15% 85%;
+    /* gap:  10px 60px; */   
 
-    header h1 {
-        font-size: 1.8rem;
-        line-height: 1.1;
-    }
+}
+.weights-grid {
+    gap: 15px;
+}
 
-    .form-group {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .form-group select {
-        width: 100%;
-    }
-
-    .weights-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-       
-    .input-container {
-
-    grid-template-columns: 20% 80%;
-    padding:  10px 0;
 }
 
 
-    .weight-input {
-        height: 100%;
-        padding:   inherit;
-        width: 100%;
-        /* background: #3476b8; */
-    }
-
-    .weight-input::placeholder {
-        padding: 8px 12px;
-    }
-
-    .result-card {
-        grid-template-columns: 1fr;
-    }
+@media (max-width: 468px) {
     .weights-grid {
-
     gap: 10px;
 }
-
-}
-
-
-@media (max-width: 428px) {
-    .input-container {
-
+.input-container {
     grid-template-columns: 20% 80%;
-}
-
-.input-text1 {
-    padding: 0 6px;
-
+    /* gap:  10px 60px; */   
 
 }
 }
-@media (max-width: 800px) {
-    .input-container {
 
-    grid-template-columns: 15% 85%;
-}
-
-
-}
 
