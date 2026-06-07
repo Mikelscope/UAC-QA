@@ -11,3 +11,288 @@
     border: 2px solid #ecdd39d3 !important;
     background-color: rgba(203, 157, 7, 0.2) !important;
 }
+
+```css
+/* ==========================
+   RESET
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #f4f6f8;
+    color: #1f2937;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+header {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 6px;
+}
+
+header p {
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+/* ==========================
+   FORM SECTION
+========================== */
+
+form {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    font-weight: 600;
+    min-width: 110px;
+}
+
+.form-group select {
+    width: 220px;
+}
+
+/* ==========================
+   INPUTS
+========================== */
+
+select,
+input {
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 1rem;
+    transition: 0.2s ease;
+    background: white;
+}
+
+select:focus,
+input:focus {
+    outline: none;
+    border-color: #22c55e;
+    box-shadow: 0 0 0 4px rgba(34,197,94,0.15);
+}
+
+/* ==========================
+   WEIGHTS SECTION
+========================== */
+
+.weights-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.weights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.weight-input {
+    font-size: 1rem;
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.button-group button {
+    border: none;
+    border-radius: 12px;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.button-group button[type="submit"] {
+    background: #22c55e;
+    color: white;
+}
+
+.button-group button[type="submit"]:hover {
+    background: #16a34a;
+}
+
+.button-group button[type="reset"] {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+.button-group button[type="reset"]:hover {
+    background: #d1d5db;
+}
+
+/* ==========================
+   RESULTS SECTION
+========================== */
+
+.results-section {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.results-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* ==========================
+   METRIC CARDS
+========================== */
+
+.result-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.result-card p {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.result-card span {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+/* ==========================
+   STATUS COLORS
+========================== */
+
+.green {
+    color: #16a34a !important;
+}
+
+.red {
+    color: #dc2626 !important;
+}
+
+.yellow {
+    color: #d97706 !important;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 12px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+        line-height: 1.1;
+    }
+
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-group select {
+        width: 100%;
+    }
+
+    .weights-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .weight-input {
+        height: 100%;
+        padding:   inherit;
+        width: 100%;
+        /* background: #3476b8; */
+    }
+
+    .weight-input::placeholder {
+        padding: 8px 12px;
+    }
+
+    .result-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* TYPED STYLESHEET */
+
+.input-container {
+    background: #22c55e49;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    align-items: center;
+    /* gap:  10px 60px; */
+    border-radius: 12px;
+
+    
+
+}
+.input-text1 {
+
+    color: #0d682f;
+    font-weight: bold;
+    padding: 8px 12px;
+
+
+}
