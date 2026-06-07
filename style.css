@@ -312,7 +312,12 @@ i, .icon {
 @media (max-width: 468px) {
     .weights-grid {
     gap: 10px;
+    grid-template-columns: 47% 47%;
 }
+body {
+    padding: 10px;
+}
+
 .input-container {
     grid-template-columns: 20% 80%;
     /* gap:  10px 60px; */   
