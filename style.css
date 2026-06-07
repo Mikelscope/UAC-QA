@@ -126,6 +126,7 @@ input:focus {
 .weights-grid {
     display: grid;
     grid-template-columns: 45% 45%;
+    justify-content: space-around;
     gap: 25px;
 }
 
@@ -309,15 +310,22 @@ i, .icon {
 }
 
 
-@media (max-width: 468px) {
+@media (max-width: 500px) {
     .weights-grid {
-    gap: 10px;
+    gap: 10px 0px;
     grid-template-columns: 47% 47%;
+}
+.input-text1 {
+    padding: 8px 12px;
+
+
 }
 body {
     padding: 10px;
 }
-
+form {
+    padding: 14px;
+}
 .input-container {
     grid-template-columns: 20% 80%;
     /* gap:  10px 60px; */   
