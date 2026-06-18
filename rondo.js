@@ -54,13 +54,6 @@ weightInputs.forEach((input, index) => {
 document.getElementById("qaForm").addEventListener("submit", function (e) {
     e.preventDefault();
     
-
-    // Change input container background to white
-document.querySelectorAll(".input-container").forEach(container => {
-    container.style.background = "white";
-});
-
-
     const productType = document.getElementById("productType").value || "classic";
 
     // =============================
@@ -69,13 +62,13 @@ document.querySelectorAll(".input-container").forEach(container => {
     function getSpec(type) {
         switch (type) {
             case "classic":
-                return { min: 57, max: 63 };
+                return { min: 67, max: 73 };
 
             case "gsr":
-                return { min: 27, max: 33 };
+                return { min: 37, max: 43 };
 
             case "odogwu":
-                return { min: 117, max: 123 };
+                return { min: 127, max: 133 };
 
             default:
                 return { min: 57, max: 63 };

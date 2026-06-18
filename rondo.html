@@ -5,7 +5,6 @@
     <script src="https://kit.fontawesome.com/4c86fe2547.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <title>Auto Wrapping Analytics</title>
 
@@ -14,27 +13,24 @@
 </head>
 
 <body>
-    
-            <!-- NAVIGATION -->
-        <!-- <nav>
-            <i class="bi bi-list"></i>
+    <!-- NAVIGATION -->
+        <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                 <li><a href="index.html">Home</a></li>
 
                 <li><a href="rondo.html">Rondo</a></li>
             </ul>
-        </nav> -->
+        </nav>
+
 
 
     <div class="container">
-        
 
         <!-- HEADER -->
         <header>
-            <h1>GALA AUTO WRAPPING ANALYTICS</h1>
-            <p>Quality Assurance Monitoring System</p>
+            <h1>RONDO ANALYTICS</h1>
+            <p>Rondo Quality Assurance Monitoring System</p>
         </header>
-
 
         <!-- MAIN FORM -->
         <form id="qaForm">
@@ -81,10 +77,28 @@
                 </select>
             </div>
 
+            <!-- LINE -->
+            <!-- <div class="form-group">
+                <label for="lineNumber">Autowrapping Line</label>
+
+                <select id="lineNumber" name="lineNumber" required>
+
+                    <option value="">Select Line</option>
+
+                    <option value="1">Line 1</option>
+                    <option value="2">Line 2</option>
+                    <option value="3">Line 3</option>
+                    <option value="4">Line 4</option>
+                    <option value="5">Line 5</option>
+                    <option value="6">Line 6</option>
+
+                </select>
+            </div> -->
+
             <!-- WEIGHT INPUT SECTION -->
             <section class="weights-section">
 
-                <h2>Enter Gala Weights (26 Samples)</h2>
+                <h2>Enter Gala Weights (8-12 Samples)</h2>
             
 
                 <div class="weights-grid">
@@ -136,62 +150,6 @@
                         <p class="input-text1">12</p>
                         <input type="number" class="weight-input" name="weight12" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
                     </div>
-                    <div class="input-container">
-                        <p class="input-text1">13</p>
-                        <input type="number" class="weight-input" name="weight13" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">14</p>
-                        <input type="number" class="weight-input" name="weight14" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">15</p>
-                        <input type="number" class="weight-input" name="weight15" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">16</p>
-                        <input type="number" class="weight-input" name="weight16" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">17</p>
-                        <input type="number" class="weight-input" name="weight17" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">18</p>
-                        <input type="number" class="weight-input" name="weight18" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">19</p>
-                        <input type="number" class="weight-input" name="weight19" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">20</p>
-                        <input type="number" class="weight-input" name="weight20" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">21</p>
-                        <input type="number" class="weight-input" name="weight21" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">22</p>
-                        <input type="number" class="weight-input" name="weight22" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">23</p>
-                        <input type="number" class="weight-input" name="weight23" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">24</p>
-                        <input type="number" class="weight-input" name="weight24" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">25</p>
-                        <input type="number" class="weight-input" name="weight25" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">26</p>
-                        <input type="number" class="weight-input" name="weight26" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>  
 
                 </div>
 
@@ -269,8 +227,7 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="rondo.js"></script>
 
 </body>
 </html>
