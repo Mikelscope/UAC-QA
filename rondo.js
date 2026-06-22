@@ -53,6 +53,10 @@ weightInputs.forEach((input, index) => {
 // =============================
 document.getElementById("qaForm").addEventListener("submit", function (e) {
     e.preventDefault();
+
+    document.querySelectorAll(".input-container").forEach(container => {
+    container.style.background = "white";
+});
     
     const productType = document.getElementById("productType").value || "classic";
 
