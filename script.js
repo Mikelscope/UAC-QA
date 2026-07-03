@@ -152,9 +152,9 @@ document.querySelectorAll(".input-container").forEach(container => {
     // =============================
     // DISPLAY RESULTS
     // =============================
-    document.getElementById("meetStandardCount").textContent = meetStandard;
-    document.getElementById("underweightCount").textContent = underStandard;
-    document.getElementById("overweightCount").textContent = overStandard;
+    document.getElementById("meetStandardCount").textContent = meetStandard +' ' + '(' + onSpecPercent.toFixed(2) + "%" + ')';
+    document.getElementById("underweightCount").textContent = underStandard +' ' + '(' + underStandard.toFixed(2) /total*100 + "%" + ')';
+    document.getElementById("overweightCount").textContent = overStandard+' ' + '(' + overStandard.toFixed(2) /total*100 + "%" + ')';
 
     document.getElementById("totalDefects").textContent =
         underStandard + overStandard;
