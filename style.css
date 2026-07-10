@@ -212,12 +212,47 @@ input:focus {
 ========================== */
 
 .results-section {
+    position: fixed;
+    inset: 0;
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,.35);
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+}
+.result-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.result-window{
     background: white;
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 4px 20px rgba(81, 30, 30, 0.05);
+    width: min(700px,95%);
+    border-radius:20px;
+    padding:25px;
+    max-height:90vh;
+    overflow:auto;
+    animation: popup .25s ease;
 }
 
+@keyframes popup{
+
+    from{
+        transform:scale(.9);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+.fa-x{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
 .results-section h2 {
     margin-bottom: 20px;
     font-size: 1.5rem;
@@ -243,6 +278,9 @@ input:focus {
     gap: 10px;
     font-weight: 500;
 }
+.result-card .total-defects, .result-card .on-spec-percentage, .result-card .defect-percentage {
+    display: none;
+}
 
 .result-card span {
     font-size: 1.8rem;
@@ -265,6 +303,7 @@ input:focus {
 }
 .total-defects {
     background: rgba(239, 68, 68, 0.2);
+    display: none;
 }
 .defect-percentage {
     background: rgba(244, 114, 182, 0.6);

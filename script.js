@@ -152,9 +152,21 @@ document.querySelectorAll(".input-container").forEach(container => {
     // =============================
     // DISPLAY RESULTS
     // =============================
-    document.getElementById("meetStandardCount").textContent = meetStandard +' ' + '(' + onSpecPercent.toFixed(2) + "%" + ')';
-    document.getElementById("underweightCount").textContent = underStandard +' ' + '(' + underStandard.toFixed(2) /total*100 + "%" + ')';
-    document.getElementById("overweightCount").textContent = overStandard+' ' + '(' + overStandard.toFixed(2) /total*100 + "%" + ')';
+
+    // Calculate percentages
+const underPercent = ((underStandard / total) * 100).toFixed(2);
+const overPercent = ((overStandard / total) * 100).toFixed(2);
+
+// Display counts and percentages
+document.getElementById("meetStandardCount").textContent =
+    `${meetStandard} (${onSpecPercent.toFixed(2)}%)`;
+
+document.getElementById("underweightCount").textContent =
+    `${underStandard} (${underPercent}%)`;
+
+document.getElementById("overweightCount").textContent =
+    `${overStandard} (${overPercent}%)`;
+    
 
     document.getElementById("totalDefects").textContent =
         underStandard + overStandard;
@@ -168,14 +180,70 @@ document.querySelectorAll(".input-container").forEach(container => {
     document.getElementById("averageWeight").textContent =
         (weights.reduce((a, b) => a + b, 0) / total).toFixed(2);
 
-    document.getElementById("status").textContent = status;
+    console.log("Showing modal...");
+    document.getElementById("resultsSection").style.display = "flex";
 
 
 });
+//close button on th eresults modal
+const closeBtn = document.getElementById("closeResults");
 
-// RESET PAGE WHEN CLEAR BUTTON IS CLICKED
+closeBtn.addEventListener("click", () => {
+
+    document.getElementById("resultsSection").style.display = "none";
+
+});
+
+//close modal when clicking outside the modal content
+
+const resultsSection = document.getElementById("resultsSection");
+
+resultsSection.addEventListener("click", function(e){
+
+    if(e.target === resultsSection){
+
+        resultsSection.style.display = "none";
+
+    }
+
+});
+
+// =============================
+// RESET FORM
+// =============================
 document.querySelector("button[type='reset']").addEventListener("click", function () {
+
+    // Allow the form to reset first
     setTimeout(() => {
-        location.reload();
-    }, 50);
+
+        // Remove colours from weight inputs
+        weightInputs.forEach(input => {
+            input.classList.remove("green", "yellow", "red");
+        });
+
+        // Restore input-container background
+        document.querySelectorAll(".input-container").forEach(container => {
+            container.style.background = "";
+        });
+
+        // Reset analysis results
+        document.getElementById("averageWeight").textContent = "0";
+        document.getElementById("meetStandardCount").textContent = "0";
+        document.getElementById("underweightCount").textContent = "0";
+        document.getElementById("overweightCount").textContent = "0";
+        document.getElementById("totalDefects").textContent = "0";
+        document.getElementById("defectPercentage").textContent = "0%";
+        document.getElementById("onSpecPercentage").textContent = "0%";
+
+        // Hide the results modal
+        document.getElementById("resultsSection").style.display = "none";
+
+        // Return product type to default (Classic)
+        document.getElementById("productType").value = "classic";
+
+        // Focus the first weight input
+        weightInputs[0].focus();
+
+    }, 0);
+
 });
