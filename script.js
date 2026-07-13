@@ -154,12 +154,12 @@ document.querySelectorAll(".input-container").forEach(container => {
     // =============================
 
     // Calculate percentages
-const underPercent = ((underStandard / total) * 100).toFixed(2);
-const overPercent = ((overStandard / total) * 100).toFixed(2);
+const underPercent = ((underStandard / total) * 100).toFixed(1);
+const overPercent = ((overStandard / total) * 100).toFixed(1);
 
 // Display counts and percentages
 document.getElementById("meetStandardCount").textContent =
-    `${meetStandard} (${onSpecPercent.toFixed(2)}%)`;
+    `${meetStandard} (${onSpecPercent.toFixed(1)}%)`;
 
 document.getElementById("underweightCount").textContent =
     `${underStandard} (${underPercent}%)`;
@@ -172,15 +172,53 @@ document.getElementById("overweightCount").textContent =
         underStandard + overStandard;
 
     document.getElementById("defectPercentage").textContent =
-        defectPercent.toFixed(2) + "%";
+        defectPercent.toFixed(1) + "%";
 
         document.getElementById("onSpecPercentage").textContent =
-        onSpecPercent.toFixed(2) + "%";
+        onSpecPercent.toFixed(1) + "%";
 
     document.getElementById("averageWeight").textContent =
-        (weights.reduce((a, b) => a + b, 0) / total).toFixed(2);
+        (weights.reduce((a, b) => a + b, 0) / total).toFixed(1);
 
-    console.log("Showing modal...");
+        //creating object to be sent to by jaavvacript to flask which is logged in excel sheet
+// =============================
+// CREATE OBJECT TO SEND TO FLASK
+// =============================
+            const qaData = {
+                sampleDate: document.getElementById("sampleDate").value,
+                batchTime: document.getElementById("batchTime").value,
+                wrapperLine: document.getElementById("autoWrapper").value,
+                productType: productType,
+
+                weights: weights,
+
+                averageWeight: (weights.reduce((a, b) => a + b, 0) / total).toFixed(1),
+
+                onSpecCount: meetStandard,
+                onSpecPercentage: onSpecPercent.toFixed(1),
+
+                underweightCount: underStandard,
+                underweightPercentage: underPercent,
+
+                overweightCount: overStandard,
+                overweightPercentage: overPercent
+            };
+
+fetch("http://127.0.0.1:5000/save", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(qaData)
+})
+.then(response => response.json())
+.then(data => {
+    console.log("Flask replied:", data);
+})
+.catch(error => {
+    console.error("Error:", error);
+});
+
     document.getElementById("resultsSection").style.display = "flex";
 
 
@@ -207,6 +245,7 @@ resultsSection.addEventListener("click", function(e){
     }
 
 });
+
 
 // =============================
 // RESET FORM
