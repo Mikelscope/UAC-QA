@@ -182,7 +182,7 @@ weights.forEach((weight, index) => {
 });
 
   //LINKING TO GOOGLE SHEETS SCRIPT
-const scriptURL = "https://script.google.com/macros/s/AKfycbxPx6PPi8k2Kf5gRPtksa-ggHJSKOqFz5TyqUP-Ni3G3nB_2lixFvDxYeiomPE5U5RRYg/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbzZlOpwzz-T_bJa8m5TtGculjhGy5SG_zkebtIdjURWufNiUy2u3yix6gzx62ugaqGnOw/exec";
 
 fetch(scriptURL, {
     method: "POST",
