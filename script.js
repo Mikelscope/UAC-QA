@@ -156,19 +156,15 @@ document.getElementById("qaForm").addEventListener("submit", function (e) {
 
   document.getElementById("averageWeight").textContent = (weights.reduce((a, b) => a + b, 0) / total).toFixed(1);
 
-  //creating object to be sent to by jaavvacript to flask which is logged in excel sheet
-  // =============================
-  // CREATE OBJECT TO SEND TO FLASK
-  // =============================
-  const qaData = {
+
+  //NEW OBJECT TO SEND TO GOOGLE SHEETS
+const qaData = {
     sampleDate: document.getElementById("sampleDate").value,
     batchTime: document.getElementById("batchTime").value,
     autoWrapper: document.getElementById("autoWrapper").value,
     productType: productType,
 
-    weights: weights,
-
-    averageWeight: (weights.reduce((a, b) => a + b, 0) / total).toFixed(1),
+    averageWeight: (weights.reduce((a,b)=>a+b,0)/total).toFixed(1),
 
     onSpecCount: meetStandard,
     onSpecPercentage: onSpecPercent.toFixed(1),
@@ -177,25 +173,32 @@ document.getElementById("qaForm").addEventListener("submit", function (e) {
     underweightPercentage: underPercent,
 
     overweightCount: overStandard,
-    overweightPercentage: overPercent,
-  };
+    overweightPercentage: overPercent
+};
 
-  
-fetch("https://uac-qa.onrender.com/save", {
+// Add Weight 1 - Weight 26
+weights.forEach((weight, index) => {
+    qaData[`weight${index + 1}`] = weight;
+});
+
+  //LINKING TO GOOGLE SHEETS SCRIPT
+const scriptURL = "https://script.google.com/macros/s/AKfycbxPx6PPi8k2Kf5gRPtksa-ggHJSKOqFz5TyqUP-Ni3G3nB_2lixFvDxYeiomPE5U5RRYg/exec";
+
+fetch(scriptURL, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(qaData),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Flask replied:", data);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    body: new URLSearchParams(qaData)
+})
+.then(response => response.json())
+.then(data => {
+    console.log("Saved successfully");
+    console.log(data);
 
+    alert("QA Record " + data.qaID + " saved successfully.");
+})
+.catch(error => {
+    console.error(error);
+    alert("Failed to save data.");
+});
   document.getElementById("resultsSection").style.display = "flex";
 });
 //close button on th eresults modal
