@@ -6,7 +6,8 @@ import os
 from datetime import datetime
 
 app = Flask(__name__)
-EXCEL_FILE = "Auto_Wrapping_Analytics.xlsx"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+EXCEL_FILE = os.path.join(BASE_DIR, "Auto_Wrapping_Analytics.xlsx")
 def create_workbook():
 
     if not os.path.exists(EXCEL_FILE):
@@ -147,8 +148,7 @@ def save():
 
 create_workbook()
 if __name__ == "__main__":
-    app.run(debug=True)
-
+    app.run(host="0.0.0.0", port=5000, debug=True)
     
 
 
