@@ -1,308 +1,502 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <script src="https://kit.fontawesome.com/4c86fe2547.js" crossorigin="anonymous"></script>
+  <head>
+    <script
+      src="https://kit.fontawesome.com/4c86fe2547.js"
+      crossorigin="anonymous"
+    ></script>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
 
     <title>Auto Wrapping Analytics</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
-</head>
+    <link
+      rel="stylesheet"
+      href="style.css"
+    />
+  </head>
 
-<body>
-    
-            <!-- NAVIGATION -->
+  <body>
+    <!-- NAVIGATION -->
     <nav>
-        <i class="fa-solid fa-bars"></i>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="rondo.html">Rondo</a></li>
-        </ul>
+      <i class="fa-solid fa-bars"></i>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rondo.html">Rondo</a></li>
+      </ul>
     </nav>
 
-
     <div class="container">
-        
+      <!-- HEADER -->
+      <header>
+        <h1>GALA AUTO WRAPPING ANALYTICS</h1>
+        <p>Quality Assurance Monitoring System</p>
+      </header>
 
-        <!-- HEADER -->
-        <header>
-            <h1>GALA AUTO WRAPPING ANALYTICS</h1>
-            <p>Quality Assurance Monitoring System</p>
-        </header>
+      <!-- MAIN FORM -->
+      <form id="qaForm">
+        <div class="pre-from">
+          <div class="form-group">
+            <label for="sampleDate">Date</label>
 
+            <input
+              type="date"
+              id="sampleDate"
+              name="sampleDate"
+              required
+            />
+          </div>
 
-        <!-- MAIN FORM -->
-        <form id="qaForm">
-            <div class="pre-from">
-                <div class="form-group">
-                <label for="sampleDate">Date</label>
+          <!-- TIME BATCH -->
+          <div class="form-group">
+            <label for="batchTime">Batch Time</label>
 
-                <input 
-                    type="date" 
-                    id="sampleDate" 
-                    name="sampleDate"
-                    required
-                />
-            </div> 
+            <select
+              id="batchTime"
+              name="batchTime"
+              required
+            >
+              <option value="">Select Batch</option>
 
-            <!-- TIME BATCH -->
-             <div class="form-group">
-                <label for="batchTime">Batch Time</label>
-
-                <select id="batchTime" name="batchTime" required>
-                    <option value="">Select Batch</option>
-                    
-                    <option value="7-9">7AM - 9AM</option>
-                    <option value="10-12">10AM - 12PM</option>
-                    <option value="1-3">1PM - 3PM</option>
-                    <option value="3-5">3PM - 5PM</option>
-                    <option value="5-7">5PM - 7PM</option>
-                </select>
-            </div>
-
-                    <div class="form-group">
-            <label for="wrapperLine">Auto Wrapper</label>
-
-            <select id="autoWrapper" name="autoWrapper" required>
-                <option value="">Select Wrapper</option>
-                <option value="Auto 1">Auto 1</option>
-                <option value="Auto 2">Auto 2</option>
-                <option value="Auto 3">Auto 3</option>
-                <option value="Auto 4">Auto 4</option>
-                <option value="Auto 5">Auto 5</option>
-                <option value="Auto 6">Auto 6</option>
-                <option value="Auto 7">Auto 7</option>
-                <option value="Auto 8">Auto 8</option>
-                <option value="Auto 9">Auto 9</option>
+              <option value="7-9">7AM - 9AM</option>
+              <option value="10-12">10AM - 12PM</option>
+              <option value="1-3">1PM - 3PM</option>
+              <option value="3-5">3PM - 5PM</option>
+              <option value="5-7">5PM - 7PM</option>
             </select>
+          </div>
+
+          <div class="form-group">
+            <label for="autoWrapper">Auto Wrapper</label>
+
+            <select
+              id="autoWrapper"
+              name="autoWrapper"
+              required
+            >
+              <option value="">Select Wrapper</option>
+              <option value="Auto 1">Auto 1</option>
+              <option value="Auto 2">Auto 2</option>
+              <option value="Auto 3">Auto 3</option>
+              <option value="Auto 4">Auto 4</option>
+              <option val33333333332ue="Auto 5">Auto 5</option>
+              <option value="Auto 6">Auto 6</option>
+              <option value="Auto 7">Auto 7</option>
+              <option value="Auto 8">Auto 8</option>
+              <option value="Auto 9">Auto 9</option>
+            </select>
+          </div>
+
+          <!-- PRODUCT TYPE -->
+          <div class="form-group">
+            <label for="productType">Product Type</label>
+
+            <select
+              id="productType"
+              name="productType"
+              required
+            >
+              <option value="">Select Product</option>
+
+              <option value="odogwu">Odogwu</option>
+              <option
+                value="classic"
+                selected
+              >
+                Classic
+              </option>
+              <option value="gsr">GSR</option>
+            </select>
+          </div>
         </div>
 
-            <!-- PRODUCT TYPE -->
-            <div class="form-group">
-                <label for="productType">Product Type</label>
+        <!-- DATE -->
 
-                <select id="productType" name="productType" required>
+        <!-- WEIGHT INPUT SECTION -->
+        <section class="weights-section">
+          <h2>Enter Gala Weights (26 Samples)</h2>
 
-                    <option value="">Select Product</option>
-
-                    <option value="odogwu">Odogwu</option>
-                    <option value="classic" selected>Classic</option>
-                    <option value="gsr">GSR</option>
-
-                </select>
+          <div class="weights-grid">
+            <div class="input-container">
+              <p class="input-text1">1</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight1"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
             </div>
-
+            <div class="input-container">
+              <p class="input-text1">2</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight2"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
             </div>
-
-            <!-- DATE -->
-
-            <!-- WEIGHT INPUT SECTION -->
-            <section class="weights-section">
-
-                <h2>Enter Gala Weights (26 Samples)</h2>
-            
-
-                <div class="weights-grid">
-                    <div class="input-container">
-                        <p class="input-text1">1</p>
-                        <input type="number" class="weight-input" name="weight1" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">2</p>
-                        <input type="number" class="weight-input" name="weight2" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">3</p>
-                        <input type="number" class="weight-input" name="weight3" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">4</p>           
-                        <input type="number" class="weight-input" name="weight4" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">5</p>
-                        <input type="number" class="weight-input" name="weight5" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">6</p>
-                        <input type="number" class="weight-input" name="weight6" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">7</p>
-                        <input type="number" class="weight-input" name="weight7" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">8</p>
-                        <input type="number" class="weight-input" name="weight8" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">9</p>
-                        <input type="number" class="weight-input" name="weight9" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">10 </p>
-                        <input type="number" class="weight-input" name="weight10" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">11</p>
-                        <input type="number" class="weight-input" name="weight11" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">12</p>
-                        <input type="number" class="weight-input" name="weight12" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">13</p>
-                        <input type="number" class="weight-input" name="weight13" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">14</p>
-                        <input type="number" class="weight-input" name="weight14" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">15</p>
-                        <input type="number" class="weight-input" name="weight15" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">16</p>
-                        <input type="number" class="weight-input" name="weight16" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">17</p>
-                        <input type="number" class="weight-input" name="weight17" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">18</p>
-                        <input type="number" class="weight-input" name="weight18" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">19</p>
-                        <input type="number" class="weight-input" name="weight19" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">20</p>
-                        <input type="number" class="weight-input" name="weight20" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">21</p>
-                        <input type="number" class="weight-input" name="weight21" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">22</p>
-                        <input type="number" class="weight-input" name="weight22" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">23</p>
-                        <input type="number" class="weight-input" name="weight23" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">24</p>
-                        <input type="number" class="weight-input" name="weight24" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">25</p>
-                        <input type="number" class="weight-input" name="weight25" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>
-                    <div class="input-container">
-                        <p class="input-text1">26</p>
-                        <input type="number" class="weight-input" name="weight26" placeholder="Enter weight (g)" inputmode="numeric" pattern="[0-9]*" />
-                    </div>  
-
-                </div>
-
-            </section>
-            <!-- BUTTONS -->
-            <div class="button-group">
-                
-                <button type="submit">
-                    <i class="fa-solid fa-calculator"></i> Calculate
-                </button>
-
-                <button type="reset">
-                    Clear
-                </button>
-
+            <div class="input-container">
+              <p class="input-text1">3</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight3"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
             </div>
+            <div class="input-container">
+              <p class="input-text1">4</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight4"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">5</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight5"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">6</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight6"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">7</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight7"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">8</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight8"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">9</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight9"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">10</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight10"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">11</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight11"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">12</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight12"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">13</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight13"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">14</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight14"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">15</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight15"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">16</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight16"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">17</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight17"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">18</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight18"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">19</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight19"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">20</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight20"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">21</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight21"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">22</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight22"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">23</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight23"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">24</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight24"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">25</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight25"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+            <div class="input-container">
+              <p class="input-text1">26</p>
+              <input
+                type="number"
+                class="weight-input"
+                name="weight26"
+                placeholder="Enter weight (g)"
+                inputmode="numeric"
+                pattern="[0-9]*"
+              />
+            </div>
+          </div>
+        </section>
+        <!-- BUTTONS -->
+        <div class="button-group">
+          <button type="submit">
+            <i class="fa-solid fa-calculator"></i>
+            Calculate
+          </button>
 
-        </form>
+          <button type="reset">Clear</button>
+        </div>
+      </form>
 
-        <!-- RESULTS SECTION -->
-        <section class="results-section" id="resultsSection">
+      <!-- RESULTS SECTION -->
+      <section
+        class="results-section"
+        id="resultsSection"
+      >
+        <div class="result-window">
+          <div class="result-header">
+            <h2>Analysis Results</h2>
 
-            <div class="result-window">
+            <i
+              class="fa-solid fa-x"
+              id="closeResults"
+            ></i>
+          </div>
 
-                <div class="result-header">
+          <div class="result-card">
+            <p class="avg-weight">
+              <i class="fa-solid fa-arrow-up-right-dots"></i>
+              Average Weight:
+              <span id="averageWeight">0</span>
+            </p>
+            <p class="on-spec">
+              <i class="fa-regular fa-circle-check"></i>
+              On Spec:
+              <span id="meetStandardCount">0</span>
+            </p>
+            <p class="underweight">
+              <i class="fa-regular fa-circle-down"></i>
+              Underweight:
+              <span id="underweightCount">0</span>
+            </p>
 
-                    <h2>Analysis Results</h2>
+            <p class="overweight">
+              <i class="fa-regular fa-circle-up"></i>
+              Overweight:
+              <span id="overweightCount">0</span>
+            </p>
 
-                    <i class="fa-solid fa-x" id="closeResults"></i>
+            <p class="total-defects">
+              <i class="fa-solid fa-exclamation"></i>
+              Total Defects:
+              <span id="totalDefects">0</span>
+            </p>
 
-                </div>
+            <p class="defect-percentage">
+              <i class="fa-regular fa-circle-xmark"></i>
+              Defect Percentage:
+              <span id="defectPercentage">0%</span>
+            </p>
+            <p class="on-spec-percentage">
+              <i class="fa-solid fa-check-double"></i>
+              OS Percentage:
+              <span id="onSpecPercentage">0%</span>
+            </p>
 
-                <div class="result-card">
-                                        <p class="avg-weight">
-
-                            <i class="fa-solid fa-arrow-up-right-dots"></i>
-                            Average Weight:
-                            <span id="averageWeight">0</span>
-                        </p>
-                        <p class="on-spec">
-                            <i class="fa-regular fa-circle-check"></i>
-                            On Spec:
-                            <span id="meetStandardCount">0</span> 
-                        </p>
-                        <p class="underweight">
-                            <i class="fa-regular fa-circle-down"></i>
-                            Underweight:
-                            <span id="underweightCount">0</span>
-                        </p>
-
-                        <p class="overweight">
-                            <i class="fa-regular fa-circle-up"></i>
-                            Overweight:
-                            <span id="overweightCount">0</span>
-                        </p>
-
-                        <p class="total-defects">
-                            <i class="fa-solid fa-exclamation"></i>
-                            Total Defects:
-                            <span id="totalDefects">0</span>
-                        </p>
-
-                        <p class="defect-percentage">
-                            <i class="fa-regular fa-circle-xmark"></i>
-                            Defect Percentage:
-                            <span id="defectPercentage">0%</span>
-                        </p>
-                                        <p class="on-spec-percentage">
-                                            <i class="fa-solid fa-check-double"></i>
-                            OS Percentage:
-                            <span id="onSpecPercentage">0%</span>
-                        </p>
-
-                        <!-- <p>
+            <!-- <p>
                             Status:
                             <span id="status">Pending</span>
                         </p> -->
-
-
-
-                </div>
-
-            </div>
-
-        </section>
-        
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- JAVASCRIPT -->
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
 ```

@@ -1,288 +1,251 @@
-
 // =============================
 // WEIGHT INPUTS
 // =============================
 const weightInputs = document.querySelectorAll(".weight-input");
 
-
 // =============================
 // AUTO MOVE TO NEXT INPUT
 // =============================
 function getRules(productType) {
-    if (productType === "odogwu") {
-        return { min: 100, max: 999, length: 3 };
-    }
-    if (productType === "classic" || productType === "gsr") {
-        return { min: 10, max: 99, length: 2 };
-    }
-    return { min: 0, max: 999, length: 1 };
+  if (productType === "odogwu") {
+    return { min: 100, max: 999, length: 3 };
+  }
+  if (productType === "classic" || productType === "gsr") {
+    return { min: 10, max: 99, length: 2 };
+  }
+  return { min: 0, max: 999, length: 1 };
 }
 
 weightInputs.forEach((input, index) => {
+  input.addEventListener("input", () => {
+    const productType = document.getElementById("productType").value || "classic";
+    const rules = getRules(productType);
 
-    input.addEventListener("input", () => {
+    const value = input.value;
+    const num = parseInt(value);
 
-        const productType = document.getElementById("productType").value || "classic";
-        const rules = getRules(productType);
+    const isValid = !isNaN(num) && num >= rules.min && num <= rules.max && value.length === rules.length;
 
-        const value = input.value;
-        const num = parseInt(value);
+    // move only when valid
+    if (isValid) {
+      const nextInput = weightInputs[index + 1];
 
-        const isValid =
-            !isNaN(num) &&
-            num >= rules.min &&
-            num <= rules.max &&
-            value.length === rules.length;
-
-        // move only when valid
-        if (isValid) {
-            const nextInput = weightInputs[index + 1];
-
-            if (nextInput) {
-                nextInput.focus();
-            } else {
-                document.querySelector("button[type='submit']").focus();
-            }
-        }
-    });
+      if (nextInput) {
+        nextInput.focus();
+      } else {
+        document.querySelector("button[type='submit']").focus();
+      }
+    }
+  });
 });
-
 
 // =============================
 // CALCULATION ENGINE
 // =============================
 document.getElementById("qaForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    
+  e.preventDefault();
 
-    // Change input container background to white
-document.querySelectorAll(".input-container").forEach(container => {
+  // Change input container background to white
+  document.querySelectorAll(".input-container").forEach((container) => {
     container.style.background = "white";
-});
+  });
 
+  const productType = document.getElementById("productType").value || "classic";
 
-    const productType = document.getElementById("productType").value || "classic";
+  // =============================
+  // PRODUCT SPEC LIMITS
+  // =============================
+  function getSpec(type) {
+    switch (type) {
+      case "classic":
+        return { min: 57, max: 63 };
 
-    // =============================
-    // PRODUCT SPEC LIMITS
-    // =============================
-    function getSpec(type) {
-        switch (type) {
-            case "classic":
-                return { min: 57, max: 63 };
+      case "gsr":
+        return { min: 27, max: 33 };
 
-            case "gsr":
-                return { min: 27, max: 33 };
+      case "odogwu":
+        return { min: 117, max: 123 };
 
-            case "odogwu":
-                return { min: 117, max: 123 };
-
-            default:
-                return { min: 57, max: 63 };
-        }
+      default:
+        return { min: 57, max: 63 };
     }
+  }
 
-    const spec = getSpec(productType);
+  const spec = getSpec(productType);
 
-    // =============================
-    // RESET VALUES
-    // =============================
-    let weights = [];
-    let meetStandard = 0;
-    let underStandard = 0;
-    let overStandard = 0;
+  // =============================
+  // RESET VALUES
+  // =============================
+  let weights = [];
+  let meetStandard = 0;
+  let underStandard = 0;
+  let overStandard = 0;
 
-    // =============================
-    // PROCESS INPUTS + COLOR LOGIC
-    // =============================
-    weightInputs.forEach(input => {
+  // =============================
+  // PROCESS INPUTS + COLOR LOGIC
+  // =============================
+  weightInputs.forEach((input) => {
+    const value = parseFloat(input.value);
 
-        const value = parseFloat(input.value);
+    // reset old colors
+    input.classList.remove("green", "red", "yellow");
 
-        // reset old colors
-        input.classList.remove("green", "red", "yellow");
+    if (!isNaN(value)) {
+      weights.push(value);
 
-        if (!isNaN(value)) {
-
-            weights.push(value);
-
-            // =============================
-            // CLASSIFICATION
-            // =============================
-            if (value < spec.min) {
-                underStandard++;
-                input.classList.add("yellow");
-            } 
-            else if (value > spec.max) {
-                overStandard++;
-                input.classList.add("red");
-            } 
-            else {
-                meetStandard++;
-                input.classList.add("green");
-            }
-        }
-    });
-
-    const total = weights.length;
-
-    if (total === 0) {
-        alert("Please enter weight values");
-        return;
+      // =============================
+      // CLASSIFICATION
+      // =============================
+      if (value < spec.min) {
+        underStandard++;
+        input.classList.add("yellow");
+      } else if (value > spec.max) {
+        overStandard++;
+        input.classList.add("red");
+      } else {
+        meetStandard++;
+        input.classList.add("green");
+      }
     }
+  });
 
-    // =============================
-    // PERCENTAGES
-    // =============================
-    const meetPercent = (meetStandard / total) * 100;
-    const defectPercent = ((underStandard + overStandard) / total) * 100;
-    const onSpecPercent = 100 - defectPercent;
-    // =============================
-    // STATUS ENGINE
-    // =============================
-    let status = "GOOD";
+  const total = weights.length;
 
-    if (meetPercent < 90 && meetPercent >= 75) {
-        status = "WARNING";
-    } 
-    else if (meetPercent < 75) {
-        status = "CRITICAL";
-    }
+  if (total === 0) {
+    alert("Please enter weight values");
+    return;
+  }
 
-    // =============================
-    // DISPLAY RESULTS
-    // =============================
+  // =============================
+  // PERCENTAGES
+  // =============================
+  const meetPercent = (meetStandard / total) * 100;
+  const defectPercent = ((underStandard + overStandard) / total) * 100;
+  const onSpecPercent = 100 - defectPercent;
+  // =============================
+  // STATUS ENGINE
+  // =============================
+  let status = "GOOD";
 
-    // Calculate percentages
-const underPercent = ((underStandard / total) * 100).toFixed(1);
-const overPercent = ((overStandard / total) * 100).toFixed(1);
+  if (meetPercent < 90 && meetPercent >= 75) {
+    status = "WARNING";
+  } else if (meetPercent < 75) {
+    status = "CRITICAL";
+  }
 
-// Display counts and percentages
-document.getElementById("meetStandardCount").textContent =
-    `${meetStandard} (${onSpecPercent.toFixed(1)}%)`;
+  // =============================
+  // DISPLAY RESULTS
+  // =============================
 
-document.getElementById("underweightCount").textContent =
-    `${underStandard} (${underPercent}%)`;
+  // Calculate percentages
+  const underPercent = ((underStandard / total) * 100).toFixed(1);
+  const overPercent = ((overStandard / total) * 100).toFixed(1);
 
-document.getElementById("overweightCount").textContent =
-    `${overStandard} (${overPercent}%)`;
-    
+  // Display counts and percentages
+  document.getElementById("meetStandardCount").textContent = `${meetStandard} (${onSpecPercent.toFixed(1)}%)`;
 
-    document.getElementById("totalDefects").textContent =
-        underStandard + overStandard;
+  document.getElementById("underweightCount").textContent = `${underStandard} (${underPercent}%)`;
 
-    document.getElementById("defectPercentage").textContent =
-        defectPercent.toFixed(1) + "%";
+  document.getElementById("overweightCount").textContent = `${overStandard} (${overPercent}%)`;
 
-        document.getElementById("onSpecPercentage").textContent =
-        onSpecPercent.toFixed(1) + "%";
+  document.getElementById("totalDefects").textContent = underStandard + overStandard;
 
-    document.getElementById("averageWeight").textContent =
-        (weights.reduce((a, b) => a + b, 0) / total).toFixed(1);
+  document.getElementById("defectPercentage").textContent = defectPercent.toFixed(1) + "%";
 
-        //creating object to be sent to by jaavvacript to flask which is logged in excel sheet
-// =============================
-// CREATE OBJECT TO SEND TO FLASK
-// =============================
-            const qaData = {
-                sampleDate: document.getElementById("sampleDate").value,
-                batchTime: document.getElementById("batchTime").value,
-                wrapperLine: document.getElementById("autoWrapper").value,
-                productType: productType,
+  document.getElementById("onSpecPercentage").textContent = onSpecPercent.toFixed(1) + "%";
 
-                weights: weights,
+  document.getElementById("averageWeight").textContent = (weights.reduce((a, b) => a + b, 0) / total).toFixed(1);
 
-                averageWeight: (weights.reduce((a, b) => a + b, 0) / total).toFixed(1),
+  //creating object to be sent to by jaavvacript to flask which is logged in excel sheet
+  // =============================
+  // CREATE OBJECT TO SEND TO FLASK
+  // =============================
+  const qaData = {
+    sampleDate: document.getElementById("sampleDate").value,
+    batchTime: document.getElementById("batchTime").value,
+    autoWrapper: document.getElementById("autoWrapper").value,
+    productType: productType,
 
-                onSpecCount: meetStandard,
-                onSpecPercentage: onSpecPercent.toFixed(1),
+    weights: weights,
 
-                underweightCount: underStandard,
-                underweightPercentage: underPercent,
+    averageWeight: (weights.reduce((a, b) => a + b, 0) / total).toFixed(1),
 
-                overweightCount: overStandard,
-                overweightPercentage: overPercent
-            };
+    onSpecCount: meetStandard,
+    onSpecPercentage: onSpecPercent.toFixed(1),
 
-fetch("http://127.0.0.1:5000/save", {
+    underweightCount: underStandard,
+    underweightPercentage: underPercent,
+
+    overweightCount: overStandard,
+    overweightPercentage: overPercent,
+  };
+
+  fetch("http://127.0.0.1:5000/save", {
     method: "POST",
     headers: {
-        "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(qaData)
-})
-.then(response => response.json())
-.then(data => {
-    console.log("Flask replied:", data);
-})
-.catch(error => {
-    console.error("Error:", error);
-});
+    body: JSON.stringify(qaData),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Flask replied:", data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 
-    document.getElementById("resultsSection").style.display = "flex";
-
-
+  document.getElementById("resultsSection").style.display = "flex";
 });
 //close button on th eresults modal
 const closeBtn = document.getElementById("closeResults");
 
 closeBtn.addEventListener("click", () => {
-
-    document.getElementById("resultsSection").style.display = "none";
-
+  document.getElementById("resultsSection").style.display = "none";
 });
 
 //close modal when clicking outside the modal content
 
 const resultsSection = document.getElementById("resultsSection");
 
-resultsSection.addEventListener("click", function(e){
-
-    if(e.target === resultsSection){
-
-        resultsSection.style.display = "none";
-
-    }
-
+resultsSection.addEventListener("click", function (e) {
+  if (e.target === resultsSection) {
+    resultsSection.style.display = "none";
+  }
 });
-
 
 // =============================
 // RESET FORM
 // =============================
 document.querySelector("button[type='reset']").addEventListener("click", function () {
+  // Allow the form to reset first
+  setTimeout(() => {
+    // Remove colours from weight inputs
+    weightInputs.forEach((input) => {
+      input.classList.remove("green", "yellow", "red");
+    });
 
-    // Allow the form to reset first
-    setTimeout(() => {
+    // Restore input-container background
+    document.querySelectorAll(".input-container").forEach((container) => {
+      container.style.background = "";
+    });
 
-        // Remove colours from weight inputs
-        weightInputs.forEach(input => {
-            input.classList.remove("green", "yellow", "red");
-        });
+    // Reset analysis results
+    document.getElementById("averageWeight").textContent = "0";
+    document.getElementById("meetStandardCount").textContent = "0";
+    document.getElementById("underweightCount").textContent = "0";
+    document.getElementById("overweightCount").textContent = "0";
+    document.getElementById("totalDefects").textContent = "0";
+    document.getElementById("defectPercentage").textContent = "0%";
+    document.getElementById("onSpecPercentage").textContent = "0%";
 
-        // Restore input-container background
-        document.querySelectorAll(".input-container").forEach(container => {
-            container.style.background = "";
-        });
+    // Hide the results modal
+    document.getElementById("resultsSection").style.display = "none";
 
-        // Reset analysis results
-        document.getElementById("averageWeight").textContent = "0";
-        document.getElementById("meetStandardCount").textContent = "0";
-        document.getElementById("underweightCount").textContent = "0";
-        document.getElementById("overweightCount").textContent = "0";
-        document.getElementById("totalDefects").textContent = "0";
-        document.getElementById("defectPercentage").textContent = "0%";
-        document.getElementById("onSpecPercentage").textContent = "0%";
+    // Return product type to default (Classic)
+    document.getElementById("productType").value = "classic";
 
-        // Hide the results modal
-        document.getElementById("resultsSection").style.display = "none";
-
-        // Return product type to default (Classic)
-        document.getElementById("productType").value = "classic";
-
-        // Focus the first weight input
-        weightInputs[0].focus();
-
-    }, 0);
-
+    // Focus the first weight input
+    weightInputs[0].focus();
+  }, 0);
 });

@@ -103,11 +103,40 @@ def save():
 
     print("\n===== DATA RECEIVED =====")
 
+        # ==========================
+    # CREATE EXCEL ROW
+    # ==========================
+
+    row = [
+        qa_id,
+        data["sampleDate"],
+        data["batchTime"],
+        data["autoWrapper"],
+        data["productType"]
+    ]
+
+     # Add the 26 weights
+    row.extend(data["weights"])
+
+    row.extend([
+    data["averageWeight"],
+
+    data["onSpecCount"],
+    data["onSpecPercentage"],
+
+    data["underweightCount"],
+    data["underweightPercentage"],
+
+    data["overweightCount"],
+    data["overweightPercentage"]
+])
+    
     for key, value in data.items():
         print(key, ":", value)
 
     print("=========================\n")
 
+    ws.append(row)
     wb.save(EXCEL_FILE)
 
     return jsonify({
