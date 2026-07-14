@@ -180,7 +180,8 @@ document.getElementById("qaForm").addEventListener("submit", function (e) {
     overweightPercentage: overPercent,
   };
 
-  fetch("http://127.0.0.1:5000/save", {
+  
+fetch("https://uac-qa.onrender.com/save", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
