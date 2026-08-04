@@ -156,15 +156,14 @@ document.getElementById("qaForm").addEventListener("submit", function (e) {
 
   document.getElementById("averageWeight").textContent = (weights.reduce((a, b) => a + b, 0) / total).toFixed(1);
 
-
   //NEW OBJECT TO SEND TO GOOGLE SHEETS
-const qaData = {
+  const qaData = {
     sampleDate: document.getElementById("sampleDate").value,
     batchTime: document.getElementById("batchTime").value,
     autoWrapper: document.getElementById("autoWrapper").value,
     productType: productType,
 
-    averageWeight: (weights.reduce((a,b)=>a+b,0)/total).toFixed(1),
+    averageWeight: (weights.reduce((a, b) => a + b, 0) / total).toFixed(1),
 
     onSpecCount: meetStandard,
     onSpecPercentage: onSpecPercent.toFixed(1),
@@ -173,32 +172,32 @@ const qaData = {
     underweightPercentage: underPercent,
 
     overweightCount: overStandard,
-    overweightPercentage: overPercent
-};
+    overweightPercentage: overPercent,
+  };
 
-// Add Weight 1 - Weight 26
-weights.forEach((weight, index) => {
+  // Add Weight 1 - Weight 26
+  weights.forEach((weight, index) => {
     qaData[`weight${index + 1}`] = weight;
-});
+  });
 
   //LINKING TO GOOGLE SHEETS SCRIPT
-const scriptURL = "https://script.google.com/macros/s/AKfycbzZlOpwzz-T_bJa8m5TtGculjhGy5SG_zkebtIdjURWufNiUy2u3yix6gzx62ugaqGnOw/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxLvSLFpLAzD9zFyMs3OM_WOTrVS8Rb8ChVTKRDyr1uSQbSVAhlj_A75DmvAU9B2pZYvA/exec";
 
-fetch(scriptURL, {
+  fetch(scriptURL, {
     method: "POST",
-    body: new URLSearchParams(qaData)
-})
-.then(response => response.json())
-.then(data => {
-    console.log("Saved successfully");
-    console.log(data);
+    body: new URLSearchParams(qaData),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Saved successfully");
+      console.log(data);
 
-    alert("QA Record " + data.qaID + " saved successfully.");
-})
-.catch(error => {
-    console.error(error);
-    alert("Failed to save data.");
-});
+      alert("QA Record " + data.qaID + " saved successfully.");
+    })
+    .catch((error) => {
+      console.error(error);
+      alert("Failed to save data.");
+    });
   document.getElementById("resultsSection").style.display = "flex";
 });
 //close button on th eresults modal
