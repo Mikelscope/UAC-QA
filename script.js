@@ -181,7 +181,7 @@ document.getElementById("qaForm").addEventListener("submit", function (e) {
   });
 
   //LINKING TO GOOGLE SHEETS SCRIPT
-  const scriptURL = "https://script.google.com/macros/s/AKfycbxLvSLFpLAzD9zFyMs3OM_WOTrVS8Rb8ChVTKRDyr1uSQbSVAhlj_A75DmvAU9B2pZYvA/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwz6B4S5SGNSyxQfDarZQKfNqG9Zpxnw4vWq9nz7a-8hNCjH5ScJIoq14ACzHCY9mk8lg/exec";
 
   fetch(scriptURL, {
     method: "POST",
